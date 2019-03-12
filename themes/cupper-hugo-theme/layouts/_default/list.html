@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <main id="main">
+    <h1>{{ .Title }}</h1>
+    <ul class="patterns-list">
+    {{ range .Pages.ByPublishDate.Reverse }}
+      <li>
+	<br>
+        <h2>
+          <a href="{{ .Permalink }}">
+            {{ .Title }} &mdash; {{ .Date.Format "Mon, Jan 2, 2006" }}
+          </a>
+        </h2>
+	{{ .Content }}
+	<br>
+	<br>
+      </li>        
+    {{ end }}
+    </ul>
+  </main>
+{{ end }}
